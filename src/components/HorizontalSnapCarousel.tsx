@@ -73,27 +73,25 @@ export default function HorizontalSnapCarousel({
 
   return (
     <div className={`relative ${className}`}>
-      {/* Prev / Next — mobile/tablet only when carousel active */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 right-0 z-20 flex items-center justify-between px-1 sm:px-2 lg:hidden">
-        <button
-          type="button"
-          onClick={() => scrollByDir(-1)}
-          disabled={!canPrev}
-          aria-label="Sebelumnya"
-          className="snap-nav-btn pointer-events-auto disabled:opacity-30 disabled:pointer-events-none"
-        >
-          <ChevronLeft className="h-5 w-5" strokeWidth={2.25} />
-        </button>
-        <button
-          type="button"
-          onClick={() => scrollByDir(1)}
-          disabled={!canNext}
-          aria-label="Berikutnya"
-          className="snap-nav-btn pointer-events-auto disabled:opacity-30 disabled:pointer-events-none"
-        >
-          <ChevronRight className="h-5 w-5" strokeWidth={2.25} />
-        </button>
-      </div>
+      {/* Prev / Next — positioned only on the sides (not full-width strip) */}
+      <button
+        type="button"
+        onClick={() => scrollByDir(-1)}
+        disabled={!canPrev}
+        aria-label="Sebelumnya"
+        className="snap-nav-btn absolute left-1 top-1/2 z-20 -translate-y-1/2 disabled:opacity-30 disabled:pointer-events-none lg:hidden"
+      >
+        <ChevronLeft className="h-5 w-5" strokeWidth={2.25} />
+      </button>
+      <button
+        type="button"
+        onClick={() => scrollByDir(1)}
+        disabled={!canNext}
+        aria-label="Berikutnya"
+        className="snap-nav-btn absolute right-1 top-1/2 z-20 -translate-y-1/2 disabled:opacity-30 disabled:pointer-events-none lg:hidden"
+      >
+        <ChevronRight className="h-5 w-5" strokeWidth={2.25} />
+      </button>
 
       <div
         ref={trackRef}
