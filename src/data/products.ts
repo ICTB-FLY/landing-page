@@ -23,6 +23,10 @@ export type Product = {
   accent: string;
   accentSoft: string;
   previewLabel: string;
+  /** Catatan singkat di kartu (opsional), mis. rekomendasi desktop */
+  notice?: string;
+  /** Harga mulai dari (opsional), ditampilkan di kartu */
+  priceFrom?: string;
 };
 
 export const products: Product[] = [
@@ -35,7 +39,7 @@ export const products: Product[] = [
       "Template landing multi-halaman: beranda, tentang, program, kontak, dan daftar. Token brand, copy, dan CTA diganti sesuai klien—ideal untuk etalase company profile.",
     demoUrl: "https://custom-web-eight.vercel.app/",
     source: "custom-web",
-    tags: ["Next.js", "Landing page", "Brand tokens"],
+    tags: ["Display ini hanya contoh", "Design 100% pilihan customer"],
     highlights: [
       "Multi-page siap pakai",
       "Konten lewat token brand",
@@ -44,6 +48,7 @@ export const products: Product[] = [
     accent: "#0f766e",
     accentSoft: "#d5f0ed",
     previewLabel: "Company Profile",
+    priceFrom: "Start from Rp 500K",
   },
   {
     id: "web-app",
@@ -54,7 +59,7 @@ export const products: Product[] = [
       "Sistem web kustom (contoh: LPK LMS) dengan role guru/staf, siswa, guest/mitra, dan super admin—dashboard, progress, dokumen, hingga etalase kualifikasi.",
     demoUrl: "https://custom-app-sigma.vercel.app/",
     source: "custom-app",
-    tags: ["Next.js", "LMS", "Role & dashboard"],
+    tags: ["Isi sesuai request", "Modul & alur mengikuti kebutuhan"],
     highlights: [
       "Multi-role (admin, staf, siswa, mitra)",
       "Panel operasional harian",
@@ -63,6 +68,8 @@ export const products: Product[] = [
     accent: "#018dff",
     accentSoft: "#e8f4ff",
     previewLabel: "Web App · LMS",
+    notice: "Better experience on desktop",
+    priceFrom: "Price depends on request",
   },
 ] as const;
 

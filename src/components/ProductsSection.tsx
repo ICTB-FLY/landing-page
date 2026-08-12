@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Monitor } from "lucide-react";
 import { products, type Product } from "@/data/products";
 import HorizontalSnapCarousel from "@/components/HorizontalSnapCarousel";
 
@@ -87,6 +87,12 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
           <span className="glass-chip px-2.5 py-1 text-[11px] font-medium tracking-wide text-[var(--body-muted)]">
             {String(index + 1).padStart(2, "0")} · demo live
           </span>
+          {product.notice ? (
+            <span className="glass-chip inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-[var(--heading)]">
+              <Monitor className="h-3.5 w-3.5 shrink-0" aria-hidden strokeWidth={2.25} />
+              {product.notice}
+            </span>
+          ) : null}
         </div>
 
         <h3 className="mt-3 text-xl font-semibold tracking-tight text-[var(--heading)] sm:text-[1.35rem]">
@@ -95,6 +101,14 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
         <p className="mt-1 text-[0.95rem] font-medium text-[var(--heading)]">
           {product.tagline}
         </p>
+        {product.priceFrom ? (
+          <p
+            className="mt-2 text-sm font-bold tracking-tight"
+            style={{ color: product.accent }}
+          >
+            {product.priceFrom}
+          </p>
+        ) : null}
         <p className="mt-2 text-[0.9rem] leading-relaxed text-[var(--body-muted)]">
           {product.description}
         </p>
